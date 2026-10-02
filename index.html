@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Пэпэ знает, что такое любовь 💚</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Pacifico&display=swap');
+
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Comfortaa,system-ui,sans-serif}
+body{
+  overflow:hidden;
+  background:linear-gradient(145deg,#dff7e7,#fff5f7 52%,#dff1ff);
+  color:#315343;
+}
+.app{position:relative;width:100%;height:100vh;min-height:620px;display:grid;place-items:center;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(4px);opacity:.65}
+.b1{width:280px;height:280px;background:#bdeecf;top:-90px;left:-70px}
+.b2{width:360px;height:360px;background:#ffd8e4;right:-120px;bottom:-130px}
+.b3{width:150px;height:150px;background:#d8e8ff;right:13%;top:10%}
+.card{
+  width:min(92vw,680px);min-height:560px;padding:34px 28px 28px;
+  border:1px solid rgba(255,255,255,.8);
+  background:rgba(255,255,255,.73);
+  backdrop-filter:blur(18px);
+  border-radius:36px;
+  box-shadow:0 24px 70px rgba(66,99,79,.16);
+  position:relative;z-index:2;text-align:center;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.screen{display:none;width:100%;animation:in .5s ease}
+.screen.active{display:flex;flex-direction:column;align-items:center}
+@keyframes in{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+h1{font-family:Pacifico,cursive;font-weight:400;font-size:clamp(30px,7vw,52px);margin:10px 0 12px;color:#3d7655}
+h2{font-size:clamp(22px,5vw,34px);margin:10px 0 12px}
+p{font-size:clamp(15px,3.5vw,18px);line-height:1.65;margin:8px auto;max-width:520px}
+.small{font-size:13px;opacity:.7}
+.pepe{
+  width:210px;height:210px;margin:3px auto 10px;position:relative;
+  animation:float 3.2s ease-in-out infinite;
+}
+.pepe .body{
+  position:absolute;left:17px;right:17px;bottom:0;height:132px;
+  background:#0878e8;border-radius:42% 42% 30% 30%;
+  box-shadow:inset 0 -8px 0 rgba(0,0,0,.12);
+}
+.pepe .head{
+  position:absolute;left:7px;right:7px;top:16px;height:137px;
+  background:#4aa83a;border-radius:50% 50% 44% 44% / 47% 47% 42% 42%;
+  border:2px solid #1f5524;
+}
+.eye{
+  position:absolute;width:68px;height:58px;background:#f7f7f2;
+  border:3px solid #162319;border-radius:58% 44% 55% 45%;
+  top:-9px;z-index:2;
+}
+.eye:after{
+  content:"";position:absolute;width:24px;height:29px;background:#111;
+  border-radius:50%;left:22px;top:13px;
+  box-shadow:6px 6px 0 -2px #fff;
+}
+.e1{left:20px;transform:rotate(-5deg)}
+.e2{right:20px;transform:rotate(5deg)}
+.pepe .head:before,.pepe .head:after{
+  content:"";position:absolute;top:12px;width:65px;height:17px;
+  border-top:5px solid #245024;border-radius:50%;
+}
+.pepe .head:before{left:14px;transform:rotate(-8deg)}
+.pepe .head:after{right:14px;transform:rotate(8deg)}
+.blush{
+  position:absolute;width:30px;height:14px;background:#ef8d88;
+  border-radius:50%;opacity:.45;top:86px;z-index:1
+}
+.bl1{left:18px}.bl2{right:18px}
+.mouth{
+  position:absolute;width:82px;height:39px;left:50%;transform:translateX(-50%);
+  top:83px;background:#e87945;border:3px solid #4b281e;
+  border-radius:22px 22px 42px 42px;z-index:3;
+  box-shadow:inset 0 -9px 0 #d84f40;
+}
+.mouth:after{
+  content:"";position:absolute;width:48px;height:7px;background:#f39a6d;
+  border-radius:50%;left:15px;top:7px;
+}
+.belly{display:none}
+@keyframes float{50%{transform:translateY(-7px)}}
+.heart{position:absolute;color:#f06e8b;font-size:38px;animation:pulse 1.5s infinite}
+.pepe .heart{right:-2px;top:0}
+@keyframes float{50%{transform:translateY(-7px)}}
+@keyframes pulse{50%{transform:scale(1.18)}}
+.btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+button{
+  border:0;border-radius:999px;padding:13px 21px;font:600 15px Comfortaa;
+  cursor:pointer;transition:.2s;box-shadow:0 8px 18px rgba(61,118,85,.13)
+}
+.primary{background:#66b878;color:white}
+.secondary{background:#fff;color:#4d755c}
+button:hover{transform:translateY(-2px)}
+button:active{transform:scale(.97)}
+.progress{position:absolute;top:15px;left:50%;transform:translateX(-50%);font-size:12px;opacity:.5}
+.note{background:#fff8cf;border-radius:22px;padding:17px 20px;margin-top:18px;box-shadow:0 8px 22px rgba(90,80,40,.08);max-width:500px}
+.final{font-family:Pacifico,cursive;color:#e05f80;font-size:clamp(30px,7vw,50px);margin:4px 0 12px}
+.hearts{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.heartfall{position:absolute;top:-50px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+.choice{min-width:170px}
+@media(max-height:700px){.card{min-height:520px;padding:22px}.pepe{transform:scale(.82);margin:-12px auto}.btns{margin-top:10px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="hearts" id="hearts"></div>
+
+  <main class="card">
+    <div class="progress" id="progress">Пэпэ · 1 / 5</div>
+
+    <section class="screen active" data-step="1">
+      <div class="pepe">
+        <div class="head"><div class="eye e1"></div><div class="eye e2"></div><div class="blush bl1"></div><div class="blush bl2"></div><div class="mouth"></div></div>
+        <div class="body"><div class="belly"></div></div><div class="heart">♥</div>
+      </div>
+      <h1>Пэпэ знает<br>кое-что о любви</h1>
+      <p>Но немного стесняется об этом говорить…</p>
+      <div class="btns"><button class="primary next">Узнать что 💚</button></div>
+    </section>
+
+    <section class="screen" data-step="2">
+      <div class="pepe"><div class="head"><div class="eye e1"></div><div class="eye e2"></div><div class="blush bl1"></div><div class="blush bl2"></div><div class="mouth"></div></div><div class="body"><div class="belly"></div></div><div class="heart">♥</div></div>
+      <h2>Пэпэ долго думал…</h2>
+      <p>Что же такое любовь?</p>
+      <div class="note">«Это когда хочется рассказывать одному человеку вообще всё. Даже какую глупость сегодня сделал.» 🐸</div>
+      <div class="btns"><button class="primary next">Дальше →</button></div>
+    </section>
+
+    <section class="screen" data-step="3">
+      <div class="pepe"><div class="head"><div class="eye e1"></div><div class="eye e2"></div><div class="blush bl1"></div><div class="blush bl2"></div><div class="mouth"></div></div><div class="body"><div class="belly"></div></div><div class="heart">♥</div></div>
+      <h2>А ещё любовь — это…</h2>
+      <p>Когда рядом с человеком спокойно. Можно быть смешным, сонным, странным и всё равно чувствовать себя любимым.</p>
+      <div class="btns"><button class="primary next">Кажется, я понял…</button></div>
+    </section>
+
+    <section class="screen" data-step="4">
+      <div class="pepe"><div class="head"><div class="eye e1"></div><div class="eye e2"></div><div class="blush bl1"></div><div class="blush bl2"></div><div class="mouth"></div></div><div class="body"><div class="belly"></div></div><div class="heart">♥</div></div>
+      <h2>Тогда у Пэпэ есть вопрос…</h2>
+      <p>Можно я просто побуду рядом?</p>
+      <div class="btns">
+        <button class="primary choice" onclick="goFinal()">Конечно 🥹</button>
+        <button class="secondary choice" onclick="goFinal()">Иди сюда 🫂</button>
+      </div>
+    </section>
+
+    <section class="screen" data-step="5">
+      <div class="pepe"><div class="head"><div class="eye e1"></div><div class="eye e2"></div><div class="blush bl1"></div><div class="blush bl2"></div><div class="mouth"></div></div><div class="body"><div class="belly"></div></div><div class="heart">♥</div></div>
+      <div class="final">Я тебя люблю ❤️</div>
+      <p>Вот и всё, что Пэпэ хотел сказать.</p>
+      <div class="note"><b>Короче…</b><br>я тебя очень-очень люблю.<br>Всё. Сказал. Теперь можно меня обнять. 🐸🫂</div>
+      <div class="btns"><button class="primary" onclick="restart()">Обнять Пэпэ ещё раз 💚</button></div>
+      <p class="small">маленькое послание от Пэпэ 💚</p>
+    </section>
+  </main>
+</div>
+
+<script>
+let step=1;
+const screens=[...document.querySelectorAll('.screen')];
+const progress=document.getElementById('progress');
+function show(n){
+  step=n;
+  screens.forEach(s=>s.classList.toggle('active',+s.dataset.step===n));
+  progress.textContent=`Пэпэ · ${n} / 5`;
+  if(n===5) shower();
+}
+document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>show(step+1)));
+function goFinal(){show(5)}
+function restart(){show(1)}
+function shower(){
+  const box=document.getElementById('hearts');
+  box.innerHTML='';
+  const chars=['♥','♡','💚','♥','✦'];
+  for(let i=0;i<35;i++){
+    const x=document.createElement('span');
+    x.className='heartfall';
+    x.textContent=chars[Math.floor(Math.random()*chars.length)];
+    x.style.left=Math.random()*100+'%';
+    x.style.fontSize=(14+Math.random()*24)+'px';
+    x.style.animationDuration=(3+Math.random()*4)+'s';
+    x.style.animationDelay=Math.random()*1.5+'s';
+    box.appendChild(x);
+  }
+}
+</script>
+</body>
+</html>
